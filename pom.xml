@@ -1,0 +1,167 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.sixdimensions.wcm.cq</groupId>
+	<artifactId>com.sixdimensions.wcm.cq.component.bindings</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>Component Bindings Provider - Parent</name>
+	<inceptionYear>2013</inceptionYear>
+	<organization>
+		<name>Six Dimensions</name>
+		<url>http://www.sixdimensions.com</url>
+	</organization>
+
+	<!-- Release Information -->
+	<scm>
+		<url>git@github.com:SixDimensions/Component-Binding-Provider.git</url>
+		<connection>scm:git:git@github.com:SixDimensions/Component-Binding-Provider.git</connection>
+	</scm>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<app.name>bootstrap</app.name>
+	</properties>
+
+	<modules>
+		<module>api</module>
+		<module>impl</module>
+	</modules>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- Set to compile for Java 6 -->
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.6</source>
+						<target>1.6</target>
+					</configuration>
+				</plugin>
+
+				<!-- Enables deployment of the code -->
+				<plugin>
+					<groupId>com.sixdimensions.wcm.cq</groupId>
+					<artifactId>cq-deploy-plugin</artifactId>
+					<version>0.1.8</version>
+					<configuration>
+						<host>${cq.host}</host>
+						<port>${cq.port}</port>
+						<user>${cq.user}</user>
+						<password>${cq.password}</password>
+					</configuration>
+				</plugin>
+
+				<!-- Generates bundle metadata and packaging -->
+				<plugin>
+					<groupId>org.apache.felix</groupId>
+					<artifactId>maven-scr-plugin</artifactId>
+					<version>1.9.0</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.slf4j</groupId>
+							<artifactId>slf4j-simple</artifactId>
+							<version>1.5.2</version>
+						</dependency>
+						<dependency>
+							<groupId>org.codehaus.plexus</groupId>
+							<artifactId>plexus-utils</artifactId>
+							<version>3.0.10</version>
+						</dependency>
+					</dependencies>
+					<executions>
+						<execution>
+							<id>generate-scr-scrdescriptor</id>
+							<goals>
+								<goal>scr</goal>
+							</goals>
+							<configuration>
+								<properties>
+									<service.vendor>Six Dimensions</service.vendor>
+								</properties>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.felix</groupId>
+					<artifactId>maven-bundle-plugin</artifactId>
+					<version>2.3.7</version>
+				</plugin>
+
+				<!-- Ignore some plugins -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.felix
+										</groupId>
+										<artifactId>
+											maven-scr-plugin
+										</artifactId>
+										<versionRange>
+											[1.7.0,)
+										</versionRange>
+										<goals>
+											<goal>scr</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+
+				<!-- Code Quality Checks -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-checkstyle-plugin</artifactId>
+					<version>2.9.1</version>
+					<executions>
+						<execution>
+							<id>checkstyle</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>checkstyle</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<configLocation>${project.parent.basedir}/checkstyle.xml</configLocation>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>findbugs-maven-plugin</artifactId>
+					<version>2.4.0</version>
+					<executions>
+						<execution>
+							<id>findbugs</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>findbugs</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<findbugsXmlOutput>true</findbugsXmlOutput>
+						<findbugsXmlWithMessages>true</findbugsXmlWithMessages>
+						<xmlOutput>true</xmlOutput>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
