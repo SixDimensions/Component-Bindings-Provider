@@ -38,8 +38,9 @@ public class CQVariablesImpl extends SlingBindings implements CQVariables {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariables#
-	 * getComponentContext()
+	 * @see
+	 * com.sixdimensions.wcm.cq.component.bindings.CQVariables#getComponentContext
+	 * ()
 	 */
 	public ComponentContext getComponentContext() {
 		return this.get(COMPONENT_CONTEXT, ComponentContext.class);
@@ -49,7 +50,7 @@ public class CQVariablesImpl extends SlingBindings implements CQVariables {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariables#getComponent()
+	 * com.sixdimensions.wcm.cq.component.bindings.CQVariables#getComponent()
 	 */
 	public Component getComponent() {
 		return this.get(COMPONENT, Component.class);
@@ -59,7 +60,7 @@ public class CQVariablesImpl extends SlingBindings implements CQVariables {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariables#getCurrentDesign
+	 * com.sixdimensions.wcm.cq.component.bindings.CQVariables#getCurrentDesign
 	 * ()
 	 */
 	public Design getCurrentDesign() {
@@ -70,8 +71,7 @@ public class CQVariablesImpl extends SlingBindings implements CQVariables {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariables#getCurrentPage
-	 * ()
+	 * com.sixdimensions.wcm.cq.component.bindings.CQVariables#getCurrentPage()
 	 */
 	public Page getCurrentPage() {
 		return this.get(CURRENT_PAGE, Page.class);
@@ -81,8 +81,7 @@ public class CQVariablesImpl extends SlingBindings implements CQVariables {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariables#getCurrentStyle
-	 * ()
+	 * com.sixdimensions.wcm.cq.component.bindings.CQVariables#getCurrentStyle()
 	 */
 	public Style getCurrentStyle() {
 		return this.get(CURRENT_STYLE, Style.class);
@@ -92,7 +91,7 @@ public class CQVariablesImpl extends SlingBindings implements CQVariables {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariables#getDesigner()
+	 * com.sixdimensions.wcm.cq.component.bindings.CQVariables#getDesigner()
 	 */
 	public Designer getDesigner() {
 		return this.get(DESIGNER, Designer.class);
@@ -102,8 +101,7 @@ public class CQVariablesImpl extends SlingBindings implements CQVariables {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariables#getEditContext
-	 * ()
+	 * com.sixdimensions.wcm.cq.component.bindings.CQVariables#getEditContext()
 	 */
 	public EditContext getEditContext() {
 		return this.get(EDIT_CONTEXT, EditContext.class);
@@ -113,8 +111,7 @@ public class CQVariablesImpl extends SlingBindings implements CQVariables {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariables#getPageManager
-	 * ()
+	 * com.sixdimensions.wcm.cq.component.bindings.CQVariables#getPageManager()
 	 */
 	public PageManager getPageManager() {
 		return this.get(PAGE_MANAGER, PageManager.class);
@@ -124,7 +121,7 @@ public class CQVariablesImpl extends SlingBindings implements CQVariables {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariables#getPageProperties
+	 * com.sixdimensions.wcm.cq.component.bindings.CQVariables#getPageProperties
 	 * ()
 	 */
 	public InheritanceValueMap getPageProperties() {
@@ -135,8 +132,7 @@ public class CQVariablesImpl extends SlingBindings implements CQVariables {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariables#getProperties
-	 * ()
+	 * com.sixdimensions.wcm.cq.component.bindings.CQVariables#getProperties()
 	 */
 	public ValueMap getProperties() {
 		return this.get(PROPERTIES, ValueMap.class);
@@ -146,7 +142,7 @@ public class CQVariablesImpl extends SlingBindings implements CQVariables {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariables#getResourceDesign
+	 * com.sixdimensions.wcm.cq.component.bindings.CQVariables#getResourceDesign
 	 * ()
 	 */
 	public Design getResourceDesign() {
@@ -157,8 +153,7 @@ public class CQVariablesImpl extends SlingBindings implements CQVariables {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariables#getResourcePage
-	 * ()
+	 * com.sixdimensions.wcm.cq.component.bindings.CQVariables#getResourcePage()
 	 */
 	public Page getResourcePage() {
 		return this.get(RESOURCE_PAGE, Page.class);
@@ -167,8 +162,7 @@ public class CQVariablesImpl extends SlingBindings implements CQVariables {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariables#getSession()
+	 * @see com.sixdimensions.wcm.cq.component.bindings.CQVariables#getSession()
 	 */
 	@Override
 	public Session getSession() {
@@ -178,8 +172,7 @@ public class CQVariablesImpl extends SlingBindings implements CQVariables {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariables#getXssAPI()
+	 * @see com.sixdimensions.wcm.cq.component.bindings.CQVariables#getXssAPI()
 	 */
 	@Override
 	public XSSAPI getXssAPI() {

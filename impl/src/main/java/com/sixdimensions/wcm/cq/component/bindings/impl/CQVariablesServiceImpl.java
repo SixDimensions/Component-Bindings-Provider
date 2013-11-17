@@ -39,7 +39,6 @@ import com.sixdimensions.wcm.cq.component.bindings.CQVariablesService;
  * An implementation of the CQVariablessService.
  * 
  * @author dklco
- * @see com.sixdimensions.CQVariablesService.cq.bootstrap.services.ci.CQVariablesService
  */
 @Component(name = "com.sixdimensions.wcm.cq.component.bindings.impl.CQVariablesServiceImpl", label = "CQ Variables Service", description = "Retrieves the CQ variables")
 @Service(value = CQVariablesService.class)
@@ -51,16 +50,23 @@ public class CQVariablesServiceImpl implements CQVariablesService {
 	private static final Logger log = LoggerFactory
 			.getLogger(CQVariablesServiceImpl.class);
 
+	/**
+	 * The constant for retrieving the design
+	 */
 	private static final String REQ_ATTR_PREFIX = "com.day.cq.wcm.tags.DefineObjectsTag:design:";
 
+	/**
+	 * A reference to the XSS API
+	 */
 	@Reference
 	private XSSAPI xssApi;
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariablesService#
-	 * getVariables(javax.servlet.jsp.PageContext)
+	 * @see
+	 * com.sixdimensions.wcm.cq.component.bindings.CQVariablesService#getVariables
+	 * (javax.servlet.jsp.PageContext)
 	 */
 	@Override
 	public CQVariables getVariables(PageContext pageContext) {
@@ -94,8 +100,9 @@ public class CQVariablesServiceImpl implements CQVariablesService {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariablesService#
-	 * getVariables(javax.script.Bindings)
+	 * @see
+	 * com.sixdimensions.wcm.cq.component.bindings.CQVariablesService#getVariables
+	 * (javax.script.Bindings)
 	 */
 	@Override
 	public CQVariables getVariables(Bindings bindings) {
