@@ -33,6 +33,9 @@ import com.sixdimensions.wcm.cq.component.bindings.ComponentBindingsProviderFact
 @Service
 public class ComponentBindingsValuesProvider implements BindingsValuesProvider {
 
+	/**
+	 * The SLF4J Logger
+	 */
 	private static final Logger log = LoggerFactory
 			.getLogger(ComponentBindingsValuesProvider.class);
 
