@@ -30,6 +30,13 @@
 		<module>impl</module>
 	</modules>
 
+	<repositories>
+		<repository>
+			<id>adobe-repo</id>
+			<url>http://repo.adobe.com/nexus/content/groups/public</url>
+		</repository>
+	</repositories>
+
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -164,4 +171,98 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- CQ APIs -->
+			<dependency>
+				<groupId>com.adobe.granite</groupId>
+				<artifactId>com.adobe.granite.xssprotection</artifactId>
+				<version>5.5.24</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.day.cq</groupId>
+				<artifactId>cq-commons</artifactId>
+				<version>5.5.0</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.day.cq.wcm</groupId>
+				<artifactId>cq-wcm-api</artifactId>
+				<version>5.5.0</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.day.cq.wcm</groupId>
+				<artifactId>cq-wcm-commons</artifactId>
+				<version>5.6.2</version>
+				<scope>compile</scope>
+			</dependency>
+			
+			<!-- Misc APIs -->
+			<dependency>
+				<groupId>javax.jcr</groupId>
+				<artifactId>jcr</artifactId>
+				<version>2.0</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet.jsp</groupId>
+				<artifactId>jsp-api</artifactId>
+				<version>2.2</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>2.4</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>org.apache.felix.scr.annotations</artifactId>
+				<version>1.7.0</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.sling</groupId>
+				<artifactId>org.apache.sling.api</artifactId>
+				<version>2.2.0</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.sling</groupId>
+				<artifactId>org.apache.sling.commons.osgi</artifactId>
+				<version>2.0.6</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.sling</groupId>
+				<artifactId>org.apache.sling.scripting.api</artifactId>
+				<version>2.1.0</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.osgi</groupId>
+				<artifactId>org.osgi.core</artifactId>
+				<version>4.1.0</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.osgi</groupId>
+				<artifactId>org.osgi.compendium</artifactId>
+				<version>4.1.0</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>1.6.4</version>
+				<scope>compile</scope>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
 </project>

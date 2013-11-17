@@ -1,4 +1,4 @@
-package com.sixdimensions.wcm.cq.bootstrap.services.ci;
+package com.sixdimensions.wcm.cq.component.bindings;
 
 import javax.script.Bindings;
 import javax.servlet.jsp.PageContext;

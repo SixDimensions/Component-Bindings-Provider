@@ -2,7 +2,7 @@
  * Copyright 2013 - Six Dimensions
  * All Rights Reserved 
  */
-package com.sixdimensions.wcm.cq.bootstrap.services.ci.impl;
+package com.sixdimensions.wcm.cq.component.bindings.impl;
 
 import java.util.Enumeration;
 
@@ -32,8 +32,8 @@ import com.day.cq.wcm.api.designer.Design;
 import com.day.cq.wcm.api.designer.Designer;
 import com.day.cq.wcm.api.designer.Style;
 import com.day.cq.wcm.commons.WCMUtils;
-import com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariables;
-import com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariablesService;
+import com.sixdimensions.wcm.cq.component.bindings.CQVariables;
+import com.sixdimensions.wcm.cq.component.bindings.CQVariablesService;
 
 /**
  * An implementation of the CQVariablessService.
@@ -41,7 +41,7 @@ import com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariablesService;
  * @author dklco
  * @see com.sixdimensions.CQVariablesService.cq.bootstrap.services.ci.CQVariablesService
  */
-@Component(name = "com.sixdimensions.wcm.cq.bootstrap.services.impl.CQVariablesServiceImpl", label = "CQ Variables Service", description = "Retrieves the CQ variables")
+@Component(name = "com.sixdimensions.wcm.cq.component.bindings.impl.CQVariablesServiceImpl", label = "CQ Variables Service", description = "Retrieves the CQ variables")
 @Service(value = CQVariablesService.class)
 public class CQVariablesServiceImpl implements CQVariablesService {
 

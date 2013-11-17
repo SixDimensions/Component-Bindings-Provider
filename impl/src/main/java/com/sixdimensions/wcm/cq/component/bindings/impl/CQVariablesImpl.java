@@ -2,7 +2,7 @@
  * Copyright 2013 - Six Dimensions
  * All Rights Reserved
  */
-package com.sixdimensions.wcm.cq.bootstrap.services.ci.impl;
+package com.sixdimensions.wcm.cq.component.bindings.impl;
 
 import javax.jcr.Session;
 
@@ -19,7 +19,7 @@ import com.day.cq.wcm.api.components.EditContext;
 import com.day.cq.wcm.api.designer.Design;
 import com.day.cq.wcm.api.designer.Designer;
 import com.day.cq.wcm.api.designer.Style;
-import com.sixdimensions.wcm.cq.bootstrap.services.ci.CQVariables;
+import com.sixdimensions.wcm.cq.component.bindings.CQVariables;
 
 /**
  * Extends the Sling Bindings to make available all of the objects the

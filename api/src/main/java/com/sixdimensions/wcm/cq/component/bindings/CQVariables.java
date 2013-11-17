@@ -2,7 +2,7 @@
  * Copyright 2013 - Six Dimensions
  * All Rights Reserved
  */
-package com.sixdimensions.wcm.cq.bootstrap.services.ci;
+package com.sixdimensions.wcm.cq.component.bindings;
 
 import java.io.PrintWriter;
 import java.io.Reader;
