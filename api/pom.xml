@@ -7,7 +7,7 @@
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>com.sixdimensions.wcm.cq.component.bindings.api</artifactId>
-	<name>Component Binding - API</name>
+	<name>Component Bindings Provider - API</name>
 	<packaging>bundle</packaging>
 
 	<build>
