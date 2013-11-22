@@ -140,9 +140,9 @@
 						<include>**/*IT.java</include>
 					</includes>
 					<systemPropertyVariables>
-						<jar.executor.work.folder>${cq.folder}</jar.executor.work.folder>
-						<jar.executor.jar.options>-p $JAREXEC_SERVER_PORT$</jar.executor.jar.options>
-						<jar.executor.vm.options>-Xmx512m</jar.executor.vm.options>
+						<jar.executor.work.folder>${cq.dir}/crx-quickstart</jar.executor.work.folder>
+						<jar.executor.jar.options>-p $JAREXEC_SERVER_PORT$ -nobrowser -nofork</jar.executor.jar.options>
+						<jar.executor.vm.options>-XX:MaxPermSize=256m -Xmx1024M</jar.executor.vm.options>
 						<jar.executor.jar.folder>${cq.dir}</jar.executor.jar.folder>
 						<jar.executor.jar.name.regexp>cq5.*jar$</jar.executor.jar.name.regexp>
 						<additional.bundles.path>${project.build.directory}/sling/additional-bundles</additional.bundles.path>
@@ -152,9 +152,9 @@
 						<server.ready.path.1>/libs/granite/core/content/login.html:QUICKSTART_HOMEPAGE</server.ready.path.1>
 						<start.bundles.timeout.seconds>30</start.bundles.timeout.seconds>
 						<bundle.install.timeout.seconds>20</bundle.install.timeout.seconds>
-						<sling.additional.bundle.0>com.sixdimensions.wcm.cq.component.bundles.api</sling.additional.bundle.0>
-						<sling.additional.bundle.1>com.sixdimensions.wcm.cq.component.bundles.impl</sling.additional.bundle.1>
-						<sling.additional.bundle.2>com.sixdimensions.wcm.cq.component.bundles.impl.test</sling.additional.bundle.2>
+						<sling.additional.bundle.0>com.sixdimensions.wcm.cq.component.bindings.api</sling.additional.bundle.0>
+						<sling.additional.bundle.1>com.sixdimensions.wcm.cq.component.bindings.impl</sling.additional.bundle.1>
+						<sling.additional.bundle.2>com.sixdimensions.wcm.cq.component.bindings.impl.test</sling.additional.bundle.2>
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>

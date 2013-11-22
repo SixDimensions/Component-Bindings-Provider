@@ -14,8 +14,10 @@ public class ComponentBindingsProviderIT extends SlingTestBase {
 	 * started. By retrieving the information for the Server URL, username and
 	 * password, the Sling instance will be automatically started.
 	 */
-	private SlingClient slingClient = new SlingClient(this.getServerBaseUrl(),
-			this.getServerUsername(), this.getServerPassword());
+	private SlingClient slingClient = new CQClient(this.getServerBaseUrl(),
+			this.getServerUsername(), this.getServerPassword()) {
+
+	};
 
 	/**
 	 * The SLF4J Logger
@@ -32,6 +34,13 @@ public class ComponentBindingsProviderIT extends SlingTestBase {
 	public void init() throws Exception {
 		log.info("init");
 
+		if (slingClient.exists("/apps/test/bindings")) {
+			slingClient.delete("/apps/test/bindings");
+		}
+		if (slingClient.exists("/content/test/bindings")) {
+			slingClient.delete("/content/test/bindings");
+		}
+
 		log.info("Creating testing component...");
 		Utils.createFolders(slingClient, "/apps/test/bindings/basic");
 		slingClient.upload("/apps/test/bindings/basic/basic.jsp",
@@ -40,7 +49,7 @@ public class ComponentBindingsProviderIT extends SlingTestBase {
 		log.info(getRequestExecutor()
 				.execute(
 						getRequestBuilder().buildGetRequest(
-								"/apps/test/bindings/basic/basic.3.json")
+								"/apps/test/bindings/basic.3.json")
 								.withCredentials("admin", "admin"))
 				.assertStatus(200).getContent());
 
@@ -73,7 +82,7 @@ public class ComponentBindingsProviderIT extends SlingTestBase {
 		getRequestExecutor()
 				.execute(
 						getRequestBuilder().buildGetRequest(
-								"/content/test/bindings/basic.json")
+								"/content/test/bindings/basic.html")
 								.withCredentials("admin", "admin"))
 				.assertStatus(200).assertContentContains("Hello World");
 
