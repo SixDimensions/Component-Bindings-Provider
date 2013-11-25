@@ -7,8 +7,8 @@ title: Home
 
 Download the JavaDoc API for the Component Bindings Provider.
 
- * [Current](/api/current)
+ * [Current](api/current)
  
 ### Past Releases
 
- * [0.1.0](/api/0.1.0)
+ * [0.1.0](api/0.1.0)

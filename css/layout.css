@@ -26,7 +26,7 @@ html,body {
 	margin: 0;
 	padding: 0;
 	margin-bottom: 15px;
-	background: url("/images/main-bg.png") repeat
+	background: url("images/main-bg.png") repeat
 		scroll 0 bottom #F2F2F2;
 }
 
@@ -244,67 +244,6 @@ ul ul,ol ol,ul ol,ol ul {
 }
 /* End Element Styling */
 
-/* Comments */
-.comment {
-	background-color: #FAFAFA;
-	border: 1px solid #DDDDDD;
-	border-radius: 2px 2px 2px 2px;
-	margin: 5px;
-}
-
-.comment-add {
-	float: right;
-}
-
-.comment .content {
-	padding: 5px;
-}
-
-.comment h3 {
-	background-color: #DDDDDD;
-	padding: 2px;
-}
-
-.comment .new {
-	display: none;
-}
-
-.comment .submitted,.node-forum  .submitted {
-	font-size: x-small;
-}
-
-.comment .submitted a.permalink {
-	background-image: url("../images/permalink.gif");
-	float: left;
-	height: 10px;
-	margin: 3px 5px;
-	text-indent: -99999px;
-	width: 10px;
-}
-
-.comment .inline li {
-	display: inline;
-}
-
-.comment .inline {
-	margin: 0;
-	padding: 5px;
-	float: right;
-}
-
-.comment  .rate-widget {
-	float: left;
-}
-
-.comment-form input {
-	margin-right: 4px;
-}
-
-#comments {
-	margin-top: 30px;
-}
-/* End Comments */
-
 /* Footer */
 #copyright {
 	margin: 20px;
@@ -400,7 +339,7 @@ ul ul,ol ol,ul ol,ol ul {
 
 #search-box input[name=search_block_form] {
 	width: 77%;
-	background: url("../images/search.png") no-repeat 5px 6px;
+	background: url("images/search.png") no-repeat 5px 6px;
 	background-color: white;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
@@ -412,7 +351,7 @@ ul ul,ol ol,ul ol,ol ul {
 
 #topbar {
 	height: 42px;
-	background: url("../images/global_bg.png") repeat-x;
+	background: url("images/global_bg.png") repeat-x;
 	padding: 12px 0 0 40px;
 }
 
@@ -612,7 +551,7 @@ ul ul,ol ol,ul ol,ol ul {
 	border: 1px solid #FFF;
 	-moz-box-shadow: 1px -1px 3px rgba(0, 0, 0, .3);
 	-webkit-box-shadow: 1px -1px 3px rgba(0, 0, 0, .3);
-	background: url("../images/global_bg.png") repeat-x;
+	background: url("images/global_bg.png") repeat-x;
 	border: 1px solid silver;
 	border-right: none;
 }
