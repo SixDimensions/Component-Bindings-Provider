@@ -13,7 +13,7 @@ import com.sixdimensions.wcm.cq.component.bindings.ComponentBindingsProvider;
 @Component
 @Service
 @Properties({
-		@Property(name = ComponentBindingsProvider.RESOURCE_TYPE_PROP, value = "test/bindings/ordered"),
+		@Property(name = ComponentBindingsProvider.RESOURCE_TYPE_PROP, value = "test/bindings/order"),
 		@Property(name = ComponentBindingsProvider.PRIORITY, intValue = -1) })
 public class SecondComponentBindingProvider implements
 		ComponentBindingsProvider {

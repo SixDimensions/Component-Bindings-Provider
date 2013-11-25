@@ -1,2 +1,2 @@
 <%@include file="/libs/foundation/global.jsp"%>
-${bindings.message}
+${bindings.message}-${bindings.message2}

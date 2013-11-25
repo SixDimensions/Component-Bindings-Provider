@@ -41,12 +41,11 @@ public class ComponentBindingsProviderIT extends SlingTestBase {
 			slingClient.delete("/content/test/bindings");
 		}
 
-
 		log.info("Initialization successful");
 	}
 
 	/**
-	 * Basic test
+	 * Basic test of the binding providers
 	 * 
 	 * @throws Exception
 	 */
@@ -76,8 +75,6 @@ public class ComponentBindingsProviderIT extends SlingTestBase {
 								"/content/test/bindings/basic.json")
 								.withCredentials("admin", "admin"))
 				.assertStatus(200).getContent());
-		
-		
 
 		log.info("Asserting Basic Binding Provider works");
 		getRequestExecutor()
@@ -87,11 +84,12 @@ public class ComponentBindingsProviderIT extends SlingTestBase {
 								.withCredentials("admin", "admin"))
 				.assertStatus(200).assertContentContains("Hello World");
 
+		log.info("All Basic tests successful");
 	}
 
 	/**
-	 * Test to ensure the the component intializers are retrieved in the correct
-	 * order.
+	 * Test to ensure the component binding providers are retrieved in the
+	 * correct order.
 	 * 
 	 * @throws Exception
 	 */
@@ -121,14 +119,65 @@ public class ComponentBindingsProviderIT extends SlingTestBase {
 								.withCredentials("admin", "admin"))
 				.assertStatus(200).getContent());
 
-		
 		log.info("Asserting Binding Provider ordering works");
 		getRequestExecutor()
 				.execute(
 						getRequestBuilder().buildGetRequest(
 								"/content/test/bindings/order.html")
 								.withCredentials("admin", "admin"))
-				.assertStatus(200).assertContentContains("First");
+				.assertStatus(200).assertContentContains("Second");
 
+		log.info("Asserting First Binding Provider is still executing");
+		getRequestExecutor()
+				.execute(
+						getRequestBuilder().buildGetRequest(
+								"/content/test/bindings/order.html")
+								.withCredentials("admin", "admin"))
+				.assertStatus(200).assertContentContains("Third");
+
+		log.info("All Order tests successful");
+	}
+
+	/**
+	 * Test to ensure errors from the component binding providers do not cause
+	 * errors in the JSP
+	 * 
+	 * @throws Exception
+	 */
+	@Test
+	public void testErrorHandling() throws Exception {
+
+		log.info("Creating test component");
+		Utils.createFolders(slingClient, "/apps/test/bindings/errored");
+		slingClient.upload("/apps/test/bindings/errored/errored.jsp",
+				ComponentBindingsProviderIT.class.getClassLoader()
+						.getResourceAsStream("errored.jsp"), -1, true);
+		log.info(getRequestExecutor()
+				.execute(
+						getRequestBuilder().buildGetRequest(
+								"/apps/test/bindings/errored.3.json")
+								.withCredentials("admin", "admin"))
+				.assertStatus(200).getContent());
+
+		log.debug("Creating test content");
+		slingClient.createNode("/content/test/bindings/errored",
+				"jcr:primaryType", "nt:unstructured", "sling:resourceType",
+				"test/bindings/errored");
+		log.info(getRequestExecutor()
+				.execute(
+						getRequestBuilder().buildGetRequest(
+								"/content/test/bindings/errored.json")
+								.withCredentials("admin", "admin"))
+				.assertStatus(200).getContent());
+
+		log.info("Asserting error's don't go to the page");
+		getRequestExecutor()
+				.execute(
+						getRequestBuilder().buildGetRequest(
+								"/content/test/bindings/errored.html")
+								.withCredentials("admin", "admin"))
+				.assertStatus(200).assertContentContains("Something--");
+
+		log.info("All error handling tests successful");
 	}
 }
