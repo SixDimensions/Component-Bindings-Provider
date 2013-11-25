@@ -2,6 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
+
 	<groupId>com.sixdimensions.wcm.cq</groupId>
 	<artifactId>com.sixdimensions.wcm.cq.component.bindings</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
@@ -9,10 +15,25 @@
 
 	<name>Component Bindings Provider - Parent</name>
 	<inceptionYear>2013</inceptionYear>
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
 	<organization>
 		<name>Six Dimensions</name>
 		<url>http://www.sixdimensions.com</url>
 	</organization>
+	<developers>
+		<developer>
+			<id>klcodanr</id>
+			<name>Dan Klco</name>
+			<email>dan.klco@sixdimensions.com</email>
+			<organization>Six Dimensions</organization>
+			<organizationUrl>http://www.sixdimensions.com</organizationUrl>
+		</developer>
+	</developers>
 
 	<!-- Release Information -->
 	<scm>
