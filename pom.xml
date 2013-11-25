@@ -39,6 +39,7 @@
 	<scm>
 		<url>git@github.com:SixDimensions/Component-Binding-Provider.git</url>
 		<connection>scm:git:git@github.com:SixDimensions/Component-Binding-Provider.git</connection>
+		<developerConnection>scm:git:git@github.com:SixDimensions/Component-Binding-Provider.git</developerConnection>
 	</scm>
 
 	<properties>
