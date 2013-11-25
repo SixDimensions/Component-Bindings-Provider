@@ -41,6 +41,18 @@ public class ComponentBindingsProviderIT extends SlingTestBase {
 			slingClient.delete("/content/test/bindings");
 		}
 
+
+		log.info("Initialization successful");
+	}
+
+	/**
+	 * Basic test
+	 * 
+	 * @throws Exception
+	 */
+	@Test
+	public void testBasic() throws Exception {
+
 		log.info("Creating testing component...");
 		Utils.createFolders(slingClient, "/apps/test/bindings/basic");
 		slingClient.upload("/apps/test/bindings/basic/basic.jsp",
@@ -58,25 +70,14 @@ public class ComponentBindingsProviderIT extends SlingTestBase {
 		slingClient.createNode("/content/test/bindings/basic",
 				"jcr:primaryType", "nt:unstructured", "sling:resourceType",
 				"test/bindings/basic");
-
 		log.info(getRequestExecutor()
 				.execute(
 						getRequestBuilder().buildGetRequest(
 								"/content/test/bindings/basic.json")
 								.withCredentials("admin", "admin"))
 				.assertStatus(200).getContent());
-
-		log.info("Initialization successful");
-	}
-
-	/**
-	 * The actual test, will be executed once the Sling instance is started and
-	 * the setup is complete.
-	 * 
-	 * @throws Exception
-	 */
-	@Test
-	public void testSample() throws Exception {
+		
+		
 
 		log.info("Asserting Basic Binding Provider works");
 		getRequestExecutor()
@@ -85,6 +86,49 @@ public class ComponentBindingsProviderIT extends SlingTestBase {
 								"/content/test/bindings/basic.html")
 								.withCredentials("admin", "admin"))
 				.assertStatus(200).assertContentContains("Hello World");
+
+	}
+
+	/**
+	 * Test to ensure the the component intializers are retrieved in the correct
+	 * order.
+	 * 
+	 * @throws Exception
+	 */
+	@Test
+	public void testOrder() throws Exception {
+
+		log.info("Creating test component");
+		Utils.createFolders(slingClient, "/apps/test/bindings/order");
+		slingClient.upload("/apps/test/bindings/order/order.jsp",
+				ComponentBindingsProviderIT.class.getClassLoader()
+						.getResourceAsStream("order.jsp"), -1, true);
+		log.info(getRequestExecutor()
+				.execute(
+						getRequestBuilder().buildGetRequest(
+								"/apps/test/bindings/order.3.json")
+								.withCredentials("admin", "admin"))
+				.assertStatus(200).getContent());
+
+		log.debug("Creating test content");
+		slingClient.createNode("/content/test/bindings/order",
+				"jcr:primaryType", "nt:unstructured", "sling:resourceType",
+				"test/bindings/order");
+		log.info(getRequestExecutor()
+				.execute(
+						getRequestBuilder().buildGetRequest(
+								"/content/test/bindings/order.json")
+								.withCredentials("admin", "admin"))
+				.assertStatus(200).getContent());
+
+		
+		log.info("Asserting Binding Provider ordering works");
+		getRequestExecutor()
+				.execute(
+						getRequestBuilder().buildGetRequest(
+								"/content/test/bindings/order.html")
+								.withCredentials("admin", "admin"))
+				.assertStatus(200).assertContentContains("First");
 
 	}
 }
