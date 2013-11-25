@@ -1,2 +1,4 @@
 target/
 /.project
+_site
+.DS_Store

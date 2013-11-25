@@ -3,10 +3,18 @@ layout: default
 title: Home
 ---
 
-# Hi Jeremy
+## Component Bindings Provider
 
-So the authoring here is pretty simple, you can either use [Markdown](http://daringfireball.net/projects/markdown/basics) or HTML.  Either works.
+### Write Maintainable Code &mdash; Banish Scriptlet!
 
-You do have to make sure that the Jekyll YAML front matter is in place for this all to work.  This is placed above the markup and is denoted by the three dashes to begin and end.
+Liberate yourself from Spaghetti Code!  The Component Bindings Provider API is designed to help separate logic from views and JSP scripts resulting in cleaner, more mantainable and more consise code.
 
-[Go here](http://jekyllrb.com/docs/installation/) for the instructions on installing Jekyll.  This is pretty vanilla so it should be pretty easy.
+![No Scriptlet](/images/no-scriptlet.png)
+
+Component Bindings Providers are OSGi Services called before a component script is executed allowing you to execute business logic, perform calculations or invoke other OSGi Services and make the results available to your component scripts, regardless of the scripting language you use.  
+
+### Learn More
+
+ * Learn how to [download and install the Component Bindings Provider](/installation.html)
+ * Learn how to [download and use the Component Bindings Provider](/usage.html)
+ * Read the [Javadocs for the Component Bindings Provider](/api.html)
