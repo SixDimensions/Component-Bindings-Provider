@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.sixdimensions.wcm.cq</groupId>
 		<artifactId>com.sixdimensions.wcm.cq.component.bindings</artifactId>
-		<version>0.1.0</version>
+		<version>0.1.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>com.sixdimensions.wcm.cq.component.bindings.impl.test</artifactId>
 	<name>Component Bindings Provider - Implementation Test</name>
@@ -13,12 +13,12 @@
 		<dependency>
 			<groupId>com.sixdimensions.wcm.cq</groupId>
 			<artifactId>com.sixdimensions.wcm.cq.component.bindings.api</artifactId>
-			<version>0.1.0</version>
+			<version>0.1.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sixdimensions.wcm.cq</groupId>
 			<artifactId>com.sixdimensions.wcm.cq.component.bindings.impl</artifactId>
-			<version>0.1.0</version>
+			<version>0.1.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.felix</groupId>
