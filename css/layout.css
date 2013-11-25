@@ -26,7 +26,7 @@ html,body {
 	margin: 0;
 	padding: 0;
 	margin-bottom: 15px;
-	background: url("images/main-bg.png") repeat
+	background: url("../images/main-bg.png") repeat
 		scroll 0 bottom #F2F2F2;
 }
 
@@ -339,7 +339,7 @@ ul ul,ol ol,ul ol,ol ul {
 
 #search-box input[name=search_block_form] {
 	width: 77%;
-	background: url("images/search.png") no-repeat 5px 6px;
+	background: url("../images/search.png") no-repeat 5px 6px;
 	background-color: white;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
@@ -351,7 +351,7 @@ ul ul,ol ol,ul ol,ol ul {
 
 #topbar {
 	height: 42px;
-	background: url("images/global_bg.png") repeat-x;
+	background: url("../images/global_bg.png") repeat-x;
 	padding: 12px 0 0 40px;
 }
 
@@ -551,7 +551,7 @@ ul ul,ol ol,ul ol,ol ul {
 	border: 1px solid #FFF;
 	-moz-box-shadow: 1px -1px 3px rgba(0, 0, 0, .3);
 	-webkit-box-shadow: 1px -1px 3px rgba(0, 0, 0, .3);
-	background: url("images/global_bg.png") repeat-x;
+	background: url("../images/global_bg.png") repeat-x;
 	border: 1px solid silver;
 	border-right: none;
 }
