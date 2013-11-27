@@ -16,5 +16,5 @@ Component Bindings Providers are OSGi Services called before a component script 
 ### Learn More
 
  * Learn how to [download and install the Component Bindings Provider](installation.html)
- * Learn how to [download and use the Component Bindings Provider](usage.html)
+ * Learn how to [use the Component Bindings Provider](usage.html)
  * Read the [Javadocs for the Component Bindings Provider](api.html)
