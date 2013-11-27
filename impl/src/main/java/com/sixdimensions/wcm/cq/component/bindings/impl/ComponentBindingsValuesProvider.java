@@ -71,7 +71,7 @@ public class ComponentBindingsValuesProvider implements BindingsValuesProvider {
 				for (ComponentBindingsProvider ci : cis) {
 					try {
 						log.debug("Invoking component initializer {}", ci);
-						ci.initialize(binding, bindings);
+						ci.addBindings(binding, bindings);
 					} catch (Exception e) {
 						log.error("Exception invoking component initializer "
 								+ ci, e);

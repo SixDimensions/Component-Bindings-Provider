@@ -19,7 +19,7 @@ import javax.script.Bindings;
 public interface ComponentBindingsProvider {
 
 	/**
-	 * A constant for the resource type property. Each service instance should
+	 * A constant for the resource type property. Each service instance must
 	 * have this property set. This property will be used to retrieve the
 	 * component initializer.
 	 */
@@ -34,12 +34,12 @@ public interface ComponentBindingsProvider {
 	static final String PRIORITY = "priority";
 
 	/**
-	 * Initialize the component properties.
+	 * Add objects to the bindings object.
 	 * 
 	 * @param variables
 	 *            the variables for CQ
 	 * @param binding
 	 *            the bindings for invoking the script
 	 */
-	void initialize(CQVariables variables, Bindings bindings);
+	void addBindings(CQVariables variables, Bindings bindings);
 }

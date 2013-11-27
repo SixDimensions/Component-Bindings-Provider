@@ -1,3 +1,7 @@
+/*
+ * Copyright 2013 - Six Dimensions
+ * All Rights Reserved 
+ */
 package com.sixdimensions.wcm.cq.component.bindings.impl.test;
 
 import javax.script.Bindings;
@@ -10,6 +14,11 @@ import org.apache.felix.scr.annotations.Service;
 import com.sixdimensions.wcm.cq.component.bindings.CQVariables;
 import com.sixdimensions.wcm.cq.component.bindings.ComponentBindingsProvider;
 
+/**
+ * 
+ * @author dklco
+ *
+ */
 @Component
 @Service
 @Properties({
@@ -19,7 +28,7 @@ public class FirstComponentBindingProvider implements
 		ComponentBindingsProvider {
 
 	@Override
-	public void initialize(CQVariables variables, Bindings bindings) {
+	public void addBindings(CQVariables variables, Bindings bindings) {
 		bindings.put("message", "First");
 		bindings.put("message2", "Third");
 	}

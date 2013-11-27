@@ -19,7 +19,7 @@ public class SecondComponentBindingProvider implements
 		ComponentBindingsProvider {
 
 	@Override
-	public void initialize(CQVariables variables, Bindings bindings) {
+	public void addBindings(CQVariables variables, Bindings bindings) {
 		bindings.put("message", "Second");
 	}
 }
