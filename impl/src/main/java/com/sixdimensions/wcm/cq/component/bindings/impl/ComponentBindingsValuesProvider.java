@@ -49,7 +49,7 @@ public class ComponentBindingsValuesProvider implements BindingsValuesProvider {
 	 * A reference to the bindings service
 	 */
 	@Reference
-	private CQVariablesService bs;
+	private CQVariablesService variablesService;
 
 	/*
 	 * (non-Javadoc)
@@ -67,11 +67,11 @@ public class ComponentBindingsValuesProvider implements BindingsValuesProvider {
 			Collection<ComponentBindingsProvider> cis = cif
 					.getComponentBindingsProviders(resourceType);
 			if (cis != null && cis.size() > 0) {
-				CQVariables binding = bs.getVariables(bindings);
+				CQVariables variables = variablesService.getVariables(bindings);
 				for (ComponentBindingsProvider ci : cis) {
 					try {
 						log.debug("Invoking component initializer {}", ci);
-						ci.addBindings(binding, bindings);
+						ci.addBindings(variables, bindings);
 					} catch (Exception e) {
 						log.error("Exception invoking component initializer "
 								+ ci, e);
