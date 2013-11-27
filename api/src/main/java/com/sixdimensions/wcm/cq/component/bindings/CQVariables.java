@@ -1,6 +1,17 @@
 /*
  * Copyright 2013 - Six Dimensions
- * All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *   
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.sixdimensions.wcm.cq.component.bindings;
 
@@ -39,77 +50,77 @@ public interface CQVariables {
 	/**
 	 * The key for the current component context object of the request.
 	 */
-	public static final String COMPONENT_CONTEXT = "componentContext";
+	String COMPONENT_CONTEXT = "componentContext";
 
 	/**
-	 * The key for the current AEM component object of the current resource
+	 * The key for the current AEM component object of the current resource.
 	 */
-	public static final String COMPONENT = "component";
+	String COMPONENT = "component";
 
 	/**
-	 * They key for the current design object of the current page
+	 * They key for the current design object of the current page.
 	 */
-	public static final String CURRENT_DESIGN = "currentDesign";
+	String CURRENT_DESIGN = "currentDesign";
 
 	/**
-	 * The key for the current AEM WCM page object
+	 * The key for the current AEM WCM page object.
 	 */
-	public static final String CURRENT_PAGE = "currentPage";
+	String CURRENT_PAGE = "currentPage";
 
 	/**
-	 * The key for the current style object of the current cell
+	 * The key for the current style object of the current cell.
 	 */
-	public static final String CURRENT_STYLE = "currentStyle";
+	String CURRENT_STYLE = "currentStyle";
 
 	/**
-	 * The key for the designer object used to access design information
+	 * The key for the designer object used to access design information.
 	 */
-	public static final String DESIGNER = "designer";
+	String DESIGNER = "designer";
 
 	/**
-	 * The key for the edit context object of the AEM component
+	 * The key for the edit context object of the AEM component.
 	 */
-	public static final String EDIT_CONTEXT = "editContext";
+	String EDIT_CONTEXT = "editContext";
 
 	/**
-	 * The key for the page manager object for page level operations
+	 * The key for the page manager object for page level operations.
 	 */
-	public static final String PAGE_MANAGER = "pageManager";
+	String PAGE_MANAGER = "pageManager";
 
 	/**
-	 * The key for the page properties object of the current page
+	 * The key for the page properties object of the current page.
 	 */
-	public static final String PAGE_PROPERTIES = "pageProperties";
+	String PAGE_PROPERTIES = "pageProperties";
 
 	/**
-	 * The key for the properties object of the current resource
+	 * The key for the properties object of the current resource.
 	 */
-	public static final String PROPERTIES = "properties";
+	String PROPERTIES = "properties";
 
 	/**
-	 * The key for the design object of the resource page
+	 * The key for the design object of the resource page.
 	 */
-	public static final String RESOURCE_DESIGN = "resourceDesign";
+	String RESOURCE_DESIGN = "resourceDesign";
 
 	/**
-	 * The key for the page containing the current resource
+	 * The key for the page containing the current resource.
 	 */
-	public static final String RESOURCE_PAGE = "resourcePage";
+	String RESOURCE_PAGE = "resourcePage";
 
 	/**
-	 * The key for the Sling helper
+	 * The key for the Sling helper.
 	 */
-	public static final String SLING = "sling";
+	String SLING = "sling";
 
 	/**
-	 * The key for the JCR Session
+	 * The key for the JCR Session.
 	 */
-	public static final String SESSION = "session";
+	String SESSION = "session";
 
 	/**
-	 * The key for the XSS API
+	 * The key for the XSS API.
 	 */
-	public static final String XSS_API = "xssAPI";
+	String XSS_API = "xssAPI";
 
 	/**
 	 * Gets the current CQ component class.
@@ -142,7 +153,7 @@ public interface CQVariables {
 	Page getCurrentPage();
 
 	/**
-	 * Gets the style of the current cell
+	 * Gets the style of the current cell.
 	 * 
 	 * @return the style
 	 */
@@ -163,22 +174,28 @@ public interface CQVariables {
 	EditContext getEditContext();
 
 	/**
-	 * Returns the {@link #FLUSH} property if not <code>null</code> and a
+	 * Returns the flush property if not <code>null</code> and a
 	 * <code>boolean</code>. Otherwise <code>false</code> is returned.
+	 * 
+	 * @return the flush flag
 	 */
 	boolean getFlush();
 
 	/**
-	 * Returns the {@link #LOG} property if not <code>null</code> and a
+	 * Returns the log property if not <code>null</code> and a
 	 * <code>org.slf4j.Logger</code> instance. Otherwise <code>null</code> is
 	 * returned.
+	 * 
+	 * @return the SLF4J Logger
 	 */
 	Logger getLog();
 
 	/**
-	 * Returns the {@link #OUT} property if not <code>null</code> and a
+	 * Returns the out property if not <code>null</code> and a
 	 * <code>PrintWriter</code> instance. Otherwise <code>null</code> is
 	 * returned.
+	 * 
+	 * @return the output writer
 	 */
 	PrintWriter getOut();
 
@@ -204,21 +221,27 @@ public interface CQVariables {
 	ValueMap getProperties();
 
 	/**
-	 * Returns the {@link #READER} property if not <code>null</code> and a
+	 * Returns the reader property if not <code>null</code> and a
 	 * <code>Reader</code> instance. Otherwise <code>null</code> is returned.
+	 * 
+	 * @return the input reader
 	 */
 	Reader getReader();
 
 	/**
-	 * Returns the {@link #REQUEST} property if not <code>null</code> and a
+	 * Returns the request property if not <code>null</code> and a
 	 * <code>SlingHttpServletRequest</code> instance. Otherwise
 	 * <code>null</code> is returned.
+	 * 
+	 * @return the current Sling Request
 	 */
 	SlingHttpServletRequest getRequest();
 
 	/**
-	 * Returns the {@link #RESOURCE} property if not <code>null</code> and a
+	 * Returns the resource property if not <code>null</code> and a
 	 * <code>Resource</code> instance. Otherwise <code>null</code> is returned.
+	 * 
+	 * @return the current resource
 	 */
 	Resource getResource();
 
@@ -239,23 +262,27 @@ public interface CQVariables {
 	Page getResourcePage();
 
 	/**
-	 * Returns the {@link #RESPONSE} property if not <code>null</code> and a
+	 * Returns the response property if not <code>null</code> and a
 	 * <code>SlingHttpServletResponse</code> instance. Otherwise
 	 * <code>null</code> is returned.
+	 * 
+	 * @return the current Sling Servlet Response
 	 */
 	SlingHttpServletResponse getResponse();
 
 	/**
-	 * Returns the {@link #SLING} property if not <code>null</code> and a
+	 * Returns the sling property if not <code>null</code> and a
 	 * <code>SlingScriptHelper</code> instance. Otherwise <code>null</code> is
 	 * returned.
+	 * 
+	 * @return the Sling helper
 	 */
 	SlingScriptHelper getSling();
 
 	/**
 	 * Returns the JCR session.
 	 * 
-	 * @returnt the jcr session
+	 * @return the jcr session
 	 */
 	Session getSession();
 

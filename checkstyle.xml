@@ -31,6 +31,9 @@
       	<property name="max" value="1000"/>
 	</module>
 
+	<!-- Following interprets the header file as regular expressions. -->
+	<!-- <module name="RegexpHeader"/> -->
+
 	<module name="FileTabCharacter">
 		<property name="severity" value="ignore" />
 	</module>
@@ -40,6 +43,13 @@
 		<!-- \s matches whitespace character, $ matches end of line. -->
 		<property name="format" value="^(?!.+\*.+).+\s+$" />
 		<property name="message" value="Line has trailing spaces." />
+	</module>
+
+	<!-- Checks for Headers -->
+	<module name="Header">
+		<property name="headerFile" value="java.header" />
+		<property name="ignoreLines" value="2" />
+		<property name="fileExtensions" value="java" />
 	</module>
 
 	<module name="TreeWalker">

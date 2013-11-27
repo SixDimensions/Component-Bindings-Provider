@@ -13,26 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.sixdimensions.wcm.cq.component.bindings;
-
-import java.util.List;
-
 /**
- * A factory for retrieving component bindings provider.
- * 
+ * Component Bindings Provider API - allows developers to bind value providers to resource types.
+ *
+ * @since 1.6
  * @author dklco
  */
-public interface ComponentBindingsProviderFactory {
-
-	/**
-	 * Get the component bindings providers based on the specified resource
-	 * type.
-	 * 
-	 * @param resourceType
-	 *            the current resource type
-	 * @return the component initializers or an empty collection if none is
-	 *         specified for the resource type
-	 */
-	List<ComponentBindingsProvider> getComponentBindingsProviders(
-			String resourceType);
-}
+package com.sixdimensions.wcm.cq.component.bindings;
