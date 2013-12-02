@@ -34,7 +34,7 @@ public class ComponentBindingsProviderIT extends SlingTestBase {
 	 * started. By retrieving the information for the Server URL, username and
 	 * password, the Sling instance will be automatically started.
 	 */
-	private SlingClient slingClient = new CQClient(this.getServerBaseUrl(),
+	private SlingClient slingClient = new SlingClient(this.getServerBaseUrl(),
 			this.getServerUsername(), this.getServerPassword()) {
 
 	};
