@@ -20,6 +20,6 @@ Additionally, the Component Bindings Provider API is available through the Maven
 
 	<dependency>
 		<groupId>com.sixdimensions.wcm.cq</groupId>
-        <artifactId>com.sixdimensions.wcm.cq.component.bindings.api</artifactId>
-        <version>0.1.1-SNAPSHOT</version>
-    </dependency>
+        	<artifactId>com.sixdimensions.wcm.cq.component.bindings.api</artifactId>
+        	<version>0.1.1</version>
+    	</dependency>
