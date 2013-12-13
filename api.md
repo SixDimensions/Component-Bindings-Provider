@@ -11,4 +11,5 @@ Download the JavaDoc API for the Component Bindings Provider.
  
 ### Past Releases
 
+ * [0.1.1](api/0.1.1)
  * [0.1.0](api/0.1.0)
