@@ -230,7 +230,7 @@
 			<dependency>
 				<groupId>com.adobe.granite</groupId>
 				<artifactId>com.adobe.granite.xssprotection</artifactId>
-				<version>5.5.24</version>
+				<version>5.5.14</version>
 				<scope>compile</scope>
 			</dependency>
 			<dependency>
