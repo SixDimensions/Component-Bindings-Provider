@@ -3,6 +3,10 @@ layout: default
 title: Installation
 ---
 
+## Supported Versions
+
+The Component Bindings Provider is supported in AEM (Adobe CQ) versions 5.5 - 5.6.1.  It has not been validated against newer versions and due to it's inclusion of the Granite XSS API, it is not compatible with CQ 5.4 or older.  If you need a version compatible with older versions of CQ, please create an issue and I will create a specific release.
+
 ## Installing Component Bindings Provider
 
 The Component Bindings Provider code is divided into two bundles:
