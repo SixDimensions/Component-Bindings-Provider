@@ -3,6 +3,8 @@ layout: default
 title: Usage
 ---
 
+[6D Labs](http://labs.sixdimensions.com) / [{{ site.name }}]({{ site.baseurl }}/) / {{ page.title }}
+
 ## Using Component Bindings Provider
 
 The Component Bindings Provider allows developers to avoid scriptlet in JSPs by defining a Component Bindings Provider which will be invoked before a component JSP is executed.

@@ -1,7 +1,9 @@
 ---
 layout: default
-title: Home
+title: API
 ---
+
+[6D Labs](http://labs.sixdimensions.com) / [{{ site.name }}]({{ site.baseurl }}/) / {{ page.title }}
 
 ## Component Bindings Provider API
 

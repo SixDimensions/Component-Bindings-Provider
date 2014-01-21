@@ -2,14 +2,14 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>{% if page.title %} {{ page.title }} | {% endif %} Component Bindings Provider | 6D Labs</title>
+		<title>{% if page.title %} {{ page.title }} | {% endif %} {{ site.name }} | 6D Labs</title>
 		{% if page.tags %}<meta content="{{page.tags | join: ', '}}" name="keywords" />{% endif %}
 		{% if page.summary %}<meta content="{{ page.summary }}" name="description" />{% endif %}
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
-		<link rel="stylesheet" href="css/base.css" />
-		<link rel="stylesheet" href="css/skeleton.css" />
-		<link rel="stylesheet" href="css/layout.css" />
-		<link rel="shortcut icon" href="images/favicon.png" />
+		<link rel="stylesheet" href="http://labs.sixdimensions.com/css/base.css" />
+		<link rel="stylesheet" href="http://labs.sixdimensions.com/css/skeleton.css" />
+		<link rel="stylesheet" href="http://labs.sixdimensions.com/css/layout.css" />
+		<link rel="shortcut icon" href="http://labs.sixdimensions.com/images/favicon.png" />
 	</head>
 	<body>
 		<div class="container">
@@ -20,8 +20,8 @@
 					<a href="http://www.sixdimensions.com/contact-us">Contact Us</a>
 				</div>
 				<h1>
-					<a href="/Component-Bindings-Provider/" id="logo">
-						<img width="300" height="84" src="images/logo.png" alt="Six Dimensions Labs">
+					<a href="{{ site.baseurl }}/" id="logo">
+						<img width="300" height="84" src="http://labs.sixdimensions.com/images/logo.png" alt="Six Dimensions Labs">
 					</a>
 				</h1>
 				<div style="clear: both"></div>
@@ -32,8 +32,17 @@
 				</div>
 			</div>
 			<div class="seventeen columns main">
-				<div class="sixteen columns">
+				<div class="eleven columns">
 					{{ content }}
+				</div>
+				<div class="five columns">
+					<h2><a href="http://labs.sixdimensions.com/blog.xml" title="Blog RSS Feed">Follow Our Blog Posts</a></h2>
+					<div class="pusher-container">
+					</div>
+					<div class="aggregator pusher">
+						<h2>Latest CQ News</h2>
+						<ul></ul>
+					</div>
 				</div>
 				<div style="clear: both"></div>
 			</div>
@@ -52,5 +61,10 @@
 				</div>
 			</div>
 		</div>
+		<script src="http://labs.sixdimensions.com/js/jquery-1.10.2.min.js"></script>
+		<script src="http://labs.sixdimensions.com/js/google-code-prettify/prettify.js"></script>
+		<script src="http://labs.sixdimensions.com/js/custom.js"></script>		
+		<script src="http://labs.sixdimensions.com/js/pushers.js"></script>
+		<script src="http://labs.sixdimensions.com/js/cta.js"></script>
 	</body>
 </html>

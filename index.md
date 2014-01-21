@@ -3,6 +3,8 @@ layout: default
 title: Home
 ---
 
+[6D Labs](http://labs.sixdimensions.com) / {{ site.name }}
+
 ## Component Bindings Provider
 
 ### Write Maintainable Code &mdash; Banish Scriptlet!
