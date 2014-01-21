@@ -11,3 +11,8 @@ baseurl: /Component-Bindings-Provider
 
 # Exclude system files
 exclude: [.gitignore]
+
+
+# Google Analytics configurations
+ga_account: UA-30089059-4
+ga_domain: sixdimensions.github.io
