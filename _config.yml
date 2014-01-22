@@ -2,7 +2,7 @@
 name: Component Bindings Provider
 
 # A short ID for the site
-id: cq-ext-tld
+id: component-bindings-provider
 
 # Short description (goes below the title; it will also be used in the RSS feed)
 description: Internal stuff
