@@ -57,6 +57,10 @@ public class ComponentBindingsProviderIT extends SlingTestBase {
 		if (slingClient.exists("/content/test/bindings")) {
 			slingClient.delete("/content/test/bindings");
 		}
+		
+		if (slingClient.exists("/apps/test/bindings")) {
+			slingClient.delete("/apps/test/bindings");
+		}
 
 		log.info("Initialization successful");
 	}
