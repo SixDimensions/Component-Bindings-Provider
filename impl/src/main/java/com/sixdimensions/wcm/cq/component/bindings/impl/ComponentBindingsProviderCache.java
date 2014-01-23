@@ -88,8 +88,9 @@ public class ComponentBindingsProviderCache extends
 	 */
 	public void registerComponentBindingsProvider(ServiceReference reference) {
 		log.info("registerComponentBindingsProvider");
-		log.info("Registering Component Bindings Provider {}",
-				reference.getProperty(Constants.SERVICE_ID));
+		log.info("Registering Component Bindings Provider {} - {}",
+				new Object[] { reference.getProperty(Constants.SERVICE_ID),
+						reference.getProperty(Constants.SERVICE_PID) });
 		String[] resourceTypes = OsgiUtil.toStringArray(reference
 				.getProperty(ComponentBindingsProvider.RESOURCE_TYPE_PROP),
 				new String[0]);
