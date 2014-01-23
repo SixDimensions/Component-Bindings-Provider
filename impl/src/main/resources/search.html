@@ -1,0 +1,35 @@
+<script>
+function toggleDetails(id){
+	$("#details-"+id).toggle();
+	if($("#toggle-"+id).hasClass("ui-icon-triangle-1-e")){
+		$("#toggle-"+id).removeClass("ui-icon-triangle-1-e");
+		$("#toggle-"+id).addClass("ui-icon-triangle-1-s");
+	} else {
+		$("#toggle-"+id).removeClass("ui-icon-triangle-1-s");
+		$("#toggle-"+id).addClass("ui-icon-triangle-1-e");
+	}
+}
+</script>
+<table class="content" width="100%" cellspacing="0" cellpadding="0">
+	<tbody>
+		<tr>
+			<th class="content  ui-state-default" colspan="2">
+				Find Component Binding Providers
+			</th>
+		</tr>
+		<tr>
+			<td class="content" colspan="2">
+				<form method="get">
+					<label for="resourceType">Resource Type</label>
+					<input type="text" name="resourceType" value="${resourceType}" /><br/><br/>
+					<label for="searchAll">Search All</label>
+					<input type="checkbox" name="searchAll" value="true" ${searchAllChecked} /><br/><br/>
+					<input type="submit" value="Search" />
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<th class="content  ui-state-default" colspan="2">
+				Results
+			</th>
+		</tr>

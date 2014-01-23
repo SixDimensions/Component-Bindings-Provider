@@ -1,0 +1,48 @@
+<p class="statline ui-state-highlight">
+</p>
+<script>
+	var message = "${message}"
+	if(message == ''){
+		$('.statline').hide();
+	} else {
+		$('.statline').html(message);
+	}
+</script>
+<table class="content" width="100%" cellspacing="0" cellpadding="0">
+	<tbody>
+		<tr>
+			<th class="content ui-state-default">
+				Component Bindings Provider
+			</th>
+		</tr>
+		<tr>
+			<td class="content ui-state-default odd">
+				<p>
+					Provided by <a href="http://www.sixdimensions.com">Six Dimensions</a>
+				</p>
+				<p>
+					To report a bug or request a feature, please go to 
+					<a href="https://github.com/SixDimensions/Component-Bindings-Provider/issues">our bug tracker</a>.
+				</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<table class="content" width="100%" cellspacing="0" cellpadding="0">
+	<tbody>
+		<tr>
+			<th class="content  ui-state-default" colspan="2">
+				Reload Component Bindings Provider Cache
+			</th>
+		</tr>
+		<tr>
+			<td class="content" colspan="2">
+				<form method="get">
+					<input type="hidden" name="reloadCache"  value="true"/>
+					<input type="submit" value="Reload Cache" />
+				</form>
+			</td>
+		</tr>
+	</tbody>
+</table>

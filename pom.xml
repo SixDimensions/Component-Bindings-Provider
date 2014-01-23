@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -43,6 +44,10 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<crx.user>admin</crx.user>
+		<crx.password>admin</crx.password>
+		<crx.host>localhost</crx.host>
+		<crx.port>4502</crx.port>
 	</properties>
 
 	<modules>
@@ -119,6 +124,19 @@
 					<artifactId>maven-bundle-plugin</artifactId>
 					<version>2.3.7</version>
 				</plugin>
+				
+				<!-- Enables installation of bundles -->
+				<plugin>
+					<groupId>org.apache.sling</groupId>
+					<artifactId>maven-sling-plugin</artifactId>
+					<version>2.1.0</version>
+					<configuration>
+						<user>${crx.user}</user>
+						<password>${crx.password}</password>
+						<slingUrl>http://${crx.host}:${crx.port}/system/console</slingUrl>
+					</configuration>
+				</plugin>
+				
 
 				<!-- Generate JavaDoc and Source Archives -->
 				<plugin>
@@ -254,6 +272,18 @@
 
 			<!-- Misc APIs -->
 			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>2.4</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>2.5</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
 				<groupId>javax.jcr</groupId>
 				<artifactId>jcr</artifactId>
 				<version>2.0</version>
@@ -270,6 +300,12 @@
 				<artifactId>servlet-api</artifactId>
 				<version>2.4</version>
 				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>org.apache.felix.webconsole</artifactId>
+				<version>4.2.0</version>
+				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.felix</groupId>

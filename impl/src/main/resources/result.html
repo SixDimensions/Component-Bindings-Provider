@@ -1,0 +1,54 @@
+<tr id="service-${id}">
+	<th class="content ui-state-default ${state}" colspan="2">
+		<a href="#service-${id}" onclick="toggleDetails('${id}')"><span class="bIcon ui-icon ui-icon-triangle-1-e" id="toggle-${id}" title="Show Details" id="img0">&nbsp;</span></a>
+		<div class="bName">
+			<a href="#service-${id}" onclick="toggleDetails('${id}')">${class}</a> <a href="/system/console/services/${id}">[${id}]</a>
+		</div>
+	</th>
+</tr>
+<tr>
+	<td colspan="2" class="ui-helper-hidden" id="details-${id}">
+		<table border="0">
+			<tr>
+				<th class="content ui-state-default odd">
+					ID
+				</th>
+				<td class="content ui-state-default odd">
+					<a href="/system/console/services/${id}">${id}</a>
+				</td>
+			</tr>
+			<tr>
+				<th class="content ui-state-default odd">
+					Bundle
+				</th>
+				<td class="content ui-state-default odd">
+					<a href="/system/console/bundles/${bundle_id}">${bundle_name}</a>
+				</td>
+			</tr>
+			<tr>
+				<th class="content ui-state-default odd">
+					Class
+				</th>
+				<td class="content ui-state-default odd">
+					${class}
+				</td>
+			</tr>
+			<tr>
+				<th class="content ui-state-default odd">
+					Priority
+				</th>
+				<td class="content ui-state-default odd">
+					${priority}
+				</td>
+			</tr>
+			<tr>
+				<th class="content ui-state-default odd">
+					Resource Types
+				</th>
+				<td class="content ui-state-default odd">
+					${resourceTypes}
+				</td>
+			</tr>
+		</table>
+	</td>
+</tr>
