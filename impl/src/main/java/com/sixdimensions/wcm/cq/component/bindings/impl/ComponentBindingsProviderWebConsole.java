@@ -1,3 +1,18 @@
+/*
+ * Copyright 2014 - Six Dimensions
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *   
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.sixdimensions.wcm.cq.component.bindings.impl;
 
 import java.io.ByteArrayOutputStream;
@@ -148,14 +163,25 @@ public class ComponentBindingsProviderWebConsole extends
 	 *            the properties to templatize
 	 * @throws IOException
 	 */
-	private void renderBlock(HttpServletResponse res, String template,
+	private void renderBlock(HttpServletResponse res, String templateName,
 			Map<String, String> properties) throws IOException {
-		InputStream is = getClass().getClassLoader().getResourceAsStream(
-				template);
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		IOUtils.copy(is, baos);
+		InputStream is = null;
+    	ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    	String template = null;
+    	try{
+    		is = getClass().getClassLoader().getResourceAsStream(templateName);
+			if(is != null){		
+				IOUtils.copy(is, baos);
+				template = baos.toString();
+			} else {
+				throw new IOException("Unable to load template "+templateName);
+			}
+		} finally {
+			IOUtils.closeQuietly(is);
+			IOUtils.closeQuietly(baos);
+		}
 		StrSubstitutor sub = new StrSubstitutor(properties);
-		res.getWriter().write(sub.replace(baos.toString()));
+		res.getWriter().write(sub.replace(template));
 	}
 
 	/*
