@@ -140,7 +140,7 @@
 						<jar.executor.jar.options>-p $JAREXEC_SERVER_PORT$ -nobrowser -nofork</jar.executor.jar.options>
 						<jar.executor.vm.options>-XX:MaxPermSize=256m -Xmx1024M</jar.executor.vm.options>
 						<jar.executor.jar.folder>${cq.dir}</jar.executor.jar.folder>
-						<jar.executor.jar.name.regexp>cq5.*jar$</jar.executor.jar.name.regexp>
+						<jar.executor.jar.name.regexp>cq.*jar$</jar.executor.jar.name.regexp>
 						<additional.bundles.path>${project.build.directory}/sling/additional-bundles</additional.bundles.path>
 						<keepJarRunning>false</keepJarRunning>
 						<server.ready.timeout.seconds>240</server.ready.timeout.seconds>
