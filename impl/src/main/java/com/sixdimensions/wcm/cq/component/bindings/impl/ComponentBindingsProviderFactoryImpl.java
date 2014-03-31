@@ -162,8 +162,10 @@ public class ComponentBindingsProviderFactoryImpl implements
 					.getAllServiceReferences(
 							ComponentBindingsProvider.class.getCanonicalName(),
 							null);
-			for (ServiceReference reference : references) {
-				cache.registerComponentBindingsProvider(reference);
+			if (references != null) {
+				for (ServiceReference reference : references) {
+					cache.registerComponentBindingsProvider(reference);
+				}
 			}
 
 		} catch (Exception e) {
