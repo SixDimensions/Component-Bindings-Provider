@@ -81,7 +81,13 @@ public class ComponentBindingsProviderWebConsole extends
 	 * A reference to the ComponentBindingsProviderFactory
 	 */
 	@Reference
-	ComponentBindingsProviderFactory factory;
+	private ComponentBindingsProviderFactory factory;
+
+	/**
+	 * A reference to the ComponentBindingsValuesProvider service
+	 */
+	@Reference
+	private ComponentBindingsValuesProvider componentBindingsValuesProvider;
 
 	/*
 	 * (non-Javadoc)
@@ -166,15 +172,15 @@ public class ComponentBindingsProviderWebConsole extends
 	private void renderBlock(HttpServletResponse res, String templateName,
 			Map<String, String> properties) throws IOException {
 		InputStream is = null;
-    	ByteArrayOutputStream baos = new ByteArrayOutputStream();
-    	String template = null;
-    	try{
-    		is = getClass().getClassLoader().getResourceAsStream(templateName);
-			if(is != null){		
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		String template = null;
+		try {
+			is = getClass().getClassLoader().getResourceAsStream(templateName);
+			if (is != null) {
 				IOUtils.copy(is, baos);
 				template = baos.toString();
 			} else {
-				throw new IOException("Unable to load template "+templateName);
+				throw new IOException("Unable to load template " + templateName);
 			}
 		} finally {
 			IOUtils.closeQuietly(is);
@@ -196,11 +202,11 @@ public class ComponentBindingsProviderWebConsole extends
 			throws ServletException, IOException {
 		log.trace("renderContent");
 
-		Map<String,String> pageProps = new HashMap<String,String>();
+		Map<String, String> pageProps = new HashMap<String, String>();
 		pageProps.put("message", "");
 		pageProps.put("searchAllChecked", "");
 		pageProps.put("resourceType", "");
-		
+
 		ComponentBindingsProviderFactoryImpl factoryImpl = (ComponentBindingsProviderFactoryImpl) factory;
 
 		if ("true".equals(req.getParameter("reloadCache"))) {
@@ -226,10 +232,10 @@ public class ComponentBindingsProviderWebConsole extends
 				}
 			}
 		}
-		
+
 		renderBlock(res, "header.html", pageProps);
 		renderBlock(res, "search.html", pageProps);
-		
+
 		for (int i = 0; i < bindingProviders.size(); i++) {
 			Map<String, String> properties = loadProperties(bindingProviders
 					.get(i));
@@ -237,5 +243,19 @@ public class ComponentBindingsProviderWebConsole extends
 			renderBlock(res, "result.html", properties);
 		}
 		res.getWriter().write("</tbody></table>");
+
+		res.getWriter()
+				.write("<table><tr><th class=\"content ui-state-default\">Recent Exceptions</th></tr>");
+
+		for (final Object obj : componentBindingsValuesProvider
+				.getRecentExceptions()) {
+			renderBlock(res, "exception.html", new HashMap<String, String>() {
+				private static final long serialVersionUID = 1L;
+				{
+					put("ex", obj.toString());
+				}
+			});
+		}
+		res.getWriter().write("</table>");
 	}
 }

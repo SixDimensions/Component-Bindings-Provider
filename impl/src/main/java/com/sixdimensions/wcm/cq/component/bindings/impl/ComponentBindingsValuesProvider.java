@@ -19,6 +19,8 @@ import java.util.Collection;
 
 import javax.script.Bindings;
 
+import org.apache.commons.collections.BoundedCollection;
+import org.apache.commons.collections.buffer.CircularFifoBuffer;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
@@ -29,6 +31,7 @@ import org.slf4j.LoggerFactory;
 
 import com.sixdimensions.wcm.cq.component.bindings.CQVariables;
 import com.sixdimensions.wcm.cq.component.bindings.CQVariablesService;
+import com.sixdimensions.wcm.cq.component.bindings.ComponentBindingsExceptionData;
 import com.sixdimensions.wcm.cq.component.bindings.ComponentBindingsProvider;
 import com.sixdimensions.wcm.cq.component.bindings.ComponentBindingsProviderFactory;
 
@@ -41,7 +44,8 @@ import com.sixdimensions.wcm.cq.component.bindings.ComponentBindingsProviderFact
  * 
  */
 @Component
-@Service
+@Service(value = { ComponentBindingsValuesProvider.class,
+		BindingsValuesProvider.class })
 public class ComponentBindingsValuesProvider implements BindingsValuesProvider {
 
 	/**
@@ -57,6 +61,20 @@ public class ComponentBindingsValuesProvider implements BindingsValuesProvider {
 	private ComponentBindingsProviderFactory cif;
 
 	/**
+	 * A collection for holding the recent Exceptions from invoking Component
+	 * Binding Providers
+	 */
+	private final BoundedCollection recentExceptions = new CircularFifoBuffer(
+			100);
+
+	/**
+	 * @return the recentExceptions
+	 */
+	public BoundedCollection getRecentExceptions() {
+		return recentExceptions;
+	}
+
+	/**
 	 * A reference to the bindings service
 	 */
 	@Reference
@@ -69,6 +87,8 @@ public class ComponentBindingsValuesProvider implements BindingsValuesProvider {
 	 * org.apache.sling.scripting.api.BindingsValuesProvider#addBindings(javax
 	 * .script.Bindings)
 	 */
+	@SuppressWarnings("unchecked")
+	// Suppressing warnings since Commons Collections is gangster...
 	@Override
 	public void addBindings(Bindings bindings) {
 		try {
@@ -81,16 +101,19 @@ public class ComponentBindingsValuesProvider implements BindingsValuesProvider {
 				CQVariables variables = variablesService.getVariables(bindings);
 				for (ComponentBindingsProvider ci : cis) {
 					try {
-						log.debug("Invoking component initializer {}", ci);
+						log.debug("Invoking component bindings provider {}", ci);
 						ci.addBindings(variables, bindings);
 					} catch (Exception e) {
-						log.error("Exception invoking component initializer "
-								+ ci, e);
+						log.error(
+								"Exception invoking component bindings provider "
+										+ ci, e);
+						recentExceptions
+								.add(new ComponentBindingsExceptionData(ci, e));
 					}
 				}
 			}
 		} catch (Exception e) {
-			log.error("Exception invoking component initializers", e);
+			log.error("Exception invoking component binding providers", e);
 		}
 	}
 }
